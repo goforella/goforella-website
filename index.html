@@ -252,11 +252,14 @@
   <p class="slogan" id="slogan">Created by a woman, for all women.</p>
   <p class="coming" id="coming">Coming Soon</p>
 
-  <div class="notify-form">
-    <input class="notify-input" type="email" id="email-input" placeholder="your@email.com" />
-    <button class="notify-btn" id="notify-btn" onclick="subscribe()">Notify me</button>
-  </div>
-  <p class="success-msg" id="success-msg">Thank you! We'll be in touch. 💜</p>
+  <form class="notify-form" method="POST" action="https://6742f079.sibforms.com/serve/MUIFAMzn--MbIc9Zpaz-WBkugq21TClv5AdqmgagKLFcWniIwTGvtSVQSZa1fVYH-pZ7AH2Op-MT8Gjfv2rBQKXiRplI8nEL7PFEabbONg8l2BjmFE6tEi1WuKWn1r5VuvHsdJnfWAe0zPVoHYtGvtIKb3g7QioPIRfuGEuutRhZMTloPq6qJa0W3NWXn8p-yZA5LVEQojRruXO1jA==">
+  <input class="notify-input" type="email" name="EMAIL" id="email-input" placeholder="your@email.com" required />
+  <input type="text" name="email_address_check" value="" style="display:none">
+  <input type="hidden" name="locale" value="en">
+  <input type="hidden" name="html_type" value="simple">
+  <button class="notify-btn" id="notify-btn" type="submit">Notify me</button>
+</form>
+  
 
   <div class="socials">
     <a class="social-link" href="https://instagram.com/goforella" target="_blank" aria-label="Instagram">
@@ -333,18 +336,10 @@ function setLang(lang) {
   document.getElementById('notify-btn').textContent = t.btn;
   document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
   event.target.classList.add('active');
-  const msg = document.getElementById('success-msg');
-  if (msg.style.display === 'block') msg.textContent = t.thanks;
+
 }
 
-function subscribe() {
-  const email = document.getElementById('email-input').value;
-  if (!email || !email.includes('@')) return;
-  document.querySelector('.notify-form').style.display = 'none';
-  const msg = document.getElementById('success-msg');
-  msg.textContent = translations[currentLang].thanks;
-  msg.style.display = 'block';
-}
+
 </script>
 </body>
 </html>
